@@ -1,13 +1,9 @@
 import * as React from 'react';
 import './DayWeather.css';
+import {IDayWeather} from "../../types";
 
-// todo: naming conventions/data formats
-export interface IProps {
-    day?: string;
-    mintemp?: string;
-    maxtemp?: string;
-    conditions?: string;
-    wind?: string;
+export interface IProps extends IDayWeather {
+
 }
 
 function DayWeather(props: IProps) {
