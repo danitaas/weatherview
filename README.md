@@ -1,48 +1,48 @@
 ## Problem description
 
-Create a simple React + Redux app that allows a user to enter a location to see the weather forecast for that location.
-Your app should have an input which allows the user to enter a town/city (e.g London).
-Upon the user submitting the input, your app will connect to a weather API (e.g https://www.openweathermap.org/api ), retrieve the forecast for that city and store it in the Redux store.
-The user will be shown the following information from the data for each of the next 5 days:
+- [ ] Create a simple React + Redux app
+- [ ] that allows a user to enter a location to see the weather forecast for that location.
+- [ ] Your app should have an input which allows the user to enter a town/city (e.g London).
+- [ ] Upon the user submitting the input, your app will connect to a weather API (e.g https://www.openweathermap.org/api )
+- [ ] retrieve the forecast for that city and
+- [ ] store it in the Redux store.
+- [ ] The user will be shown the following information from the data for each of the next 5 days:
 
-[Day]
-e.g Monday
-[min temp]
-e.g 23°C/73°F
-[max temp]
-e.g 23°C/73°F
-[conditions]
-i.e clear sky or light snow
-[wind]
-e.g 27kmh/17mph WNW
+| Data        | Format           |
+| ------------- |-------------|
+| Day   | Monday |
+| min temp | 23°C/73°F |
+| max temp | 23°C/73°F |
+| conditions | clear sky or light snow |
+| wind | 27kmh/17mph WNW |
 
-The user should then be able to select a day interactively to drill-down and see a more detailed forecast for that day (e.g. 3-hourly data).
+- [ ] The user should then be able to select a day interactively to drill-down and see a more detailed forecast for that day (e.g. 3-hourly data).
 
 Technologies
 ------------
-React
-Redux
-ES6
-Webpack
+- [x] React
+- [ ] Redux
+- [x] ES6
+- [x] Webpack (within CRA, let me know if you would like to see custom config)
 
 Other info
 ----------
 
-You may set up your project with create-react-app or any other boilerplate/starter kit.
+- [x] You may set up your project with create-react-app or any other boilerplate/starter kit.
 
 Deliverables
 ------------
 
-The provided solution should contain a README.md with instructions on how to test, build and run the project.
-Also in the README, please provide any assumptions you have made.
-Please make this available on the web - either via Github, Bitbucket or a downloadable zip from an online drive due to email security restrictions.
-
-
+- [x] The provided solution should contain a README.md with instructions on how to test, build and run the project.
+- [ ] Also in the README, please provide any assumptions you have made.
+- [ ] Please make this available on the web - either via Github, Bitbucket or a downloadable zip from an online drive due to email security restrictions.
 
 ## Assumptions
 
 May not work in older browser as polyfills not checked
 Service workers/offline first has been disabled
+Have chosen final-form as form library (same author as redux-form) all form state best not kept in redux due to performance (typing lag)
+
 
 
 ## Log
