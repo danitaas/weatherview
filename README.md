@@ -42,7 +42,7 @@ Deliverables
 May not work in older browser as polyfills not checked
 Service workers/offline first has been disabled
 Have chosen final-form as form library (same author as redux-form) all form state best not kept in redux due to performance (typing lag)
-
+Inline styles have been used for implementation speed, issues with a perf/maintainence (better to use CSS-in-JSS solution or one of the Sass/Less modules)
 
 
 ## Log
