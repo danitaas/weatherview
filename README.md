@@ -43,6 +43,7 @@ May not work in older browser as polyfills not checked
 Service workers/offline first has been disabled
 Have chosen final-form as form library (same author as redux-form) all form state best not kept in redux due to performance (typing lag)
 Inline styles have been used for implementation speed, issues with a perf/maintainence (better to use CSS-in-JSS solution or one of the Sass/Less modules)
+There a TODO notes in the code to indicate alternative ways to implement in a larger project, have skipped over however do let me know if you would like to see more
 
 
 ## Log
@@ -52,9 +53,7 @@ Inline styles have been used for implementation speed, issues with a perf/mainta
 - Use https://github.com/Microsoft/TypeScript-React-Starter
 
 
-## Available Scripts
-
-In the project directory, you can run:
+## Scripts
 
 ### `npm start`
 
@@ -72,9 +71,7 @@ See the section about [running tests](#running-tests) for more information.
 ### `npm run build`
 
 Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+### `npm run build`
 
-See the section about [deployment](#deployment) for more information.
+Dont run!!

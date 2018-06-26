@@ -1,6 +1,6 @@
 import * as React from 'react';
 import './DayWeather.css';
-import {IDayWeather} from "../../types";
+import {IDayWeather} from "../../logic/weather";
 
 export interface IProps extends IDayWeather {
 
