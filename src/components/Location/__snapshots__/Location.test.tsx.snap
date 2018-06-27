@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders snapshot 1`] = `
+<div>
+  <form
+    onSubmit={[Function]}
+  >
+    <label>
+      Location:
+      <input
+        onChange={[Function]}
+        type="text"
+        value="London"
+      />
+    </label>
+    <label>
+      Country Code:
+      <input
+        type="text"
+        value="uk"
+      />
+    </label>
+    <input
+      type="submit"
+      value="Submit"
+    />
+  </form>
+</div>
+`;

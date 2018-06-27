@@ -8,30 +8,30 @@ exports[`renders snapshot 1`] = `
 
 exports[`renders snapshot with props 1`] = `
 <div
-  className="DayWeather-container"
+  className="HourWeather-container"
 >
   <div
-    className="DayWeather-item"
+    className="HourWeather-item"
   >
-    Wed 27
+    13:00
   </div>
   <div
-    className="DayWeather-item"
+    className="HourWeather-item"
   >
     25.64°C/78.14°F
   </div>
   <div
-    className="DayWeather-item"
+    className="HourWeather-item"
   >
     25.42°C/77.76°F
   </div>
   <div
-    className="DayWeather-item"
+    className="HourWeather-item"
   >
     a
   </div>
   <div
-    className="DayWeather-item"
+    className="HourWeather-item"
   >
     3.60kmh/2.24mph N
   </div>

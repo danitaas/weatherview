@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders snapshot 1`] = `
+<div
+  className="App"
+>
+  <header
+    className="App-header"
+  >
+    <img
+      alt="logo"
+      className="App-logo"
+      src={undefined}
+    />
+    <h1
+      className="App-title"
+    >
+      Welcome to Weather Viewer
+    </h1>
+  </header>
+  <div
+    style={
+      Object {
+        "marginTop": 50,
+      }
+    }
+  >
+    <Connect(Location) />
+    <Connect(Weather) />
+  </div>
+</div>
+`;

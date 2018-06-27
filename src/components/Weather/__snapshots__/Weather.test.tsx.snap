@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders snapshot 1`] = `
+<div
+  className="Weather-container"
+>
+  <div
+    className="Weather-dayitems"
+  >
+    <div>
+      No results found
+    </div>
+  </div>
+  <div
+    className="Weather-day"
+  >
+    <div>
+      Selected Day: 
+    </div>
+    <div
+      className="Weather-houritems"
+    />
+  </div>
+</div>
+`;
+
+exports[`renders snapshot with props 1`] = `
+<div
+  className="Weather-container"
+>
+  <div
+    className="Weather-dayitems"
+  >
+    <div>
+      No results found
+    </div>
+  </div>
+  <div
+    className="Weather-day"
+  >
+    <div>
+      Selected Day: 
+    </div>
+    <div
+      className="Weather-houritems"
+    />
+  </div>
+</div>
+`;
