@@ -1,3 +1,5 @@
+import * as moment from "moment";
+
 // note: my preference is to co-location action defs/action creators/reducers/selectors, however there are many patterns how to structure this
 
 // ----------------Actions---------------------------
@@ -53,18 +55,37 @@ export function LoadWeatherFail(): ILoadWeatherFailAction {
     };
 }
 
-export type IWeatherAction = ILoadWeatherStartAction | ILoadWeatherOkAction | ILoadWeatherFailAction;
+export const SELECT_DAY = "SELECT_DAY";
+export type SELECT_DAY = typeof SELECT_DAY;
+export interface ISelectDayAction {
+    type: SELECT_DAY;
+    payload: {
+        dt: number;
+    }
+}
+export function SelectDay(dt: number): ISelectDayAction {
+    return {
+        type: SELECT_DAY,
+        payload: {
+            dt
+        }
+    };
+}
+
+export type IWeatherAction = ILoadWeatherStartAction | ILoadWeatherOkAction | ILoadWeatherFailAction | ISelectDayAction;
 
 // ----------------State---------------------------
 
 // todo: rename IDayForecast
 // todo: naming conventions/data formats
 export interface IDayWeather {
-    day?: string;
-    mintemp?: string;
-    maxtemp?: string;
-    conditions?: string;
-    wind?: string;
+    dt: number; // todo: use a better primary key/record id
+    dt_txt: string;
+    mintemp: number;
+    maxtemp: number;
+    conditions: string;
+    windspeed: number;
+    winddeg: number;
 }
 
 export interface IWeatherState {
@@ -73,6 +94,7 @@ export interface IWeatherState {
     forecasts: IDayWeather[];
     // todo: could also store multiple locations
     // eg locations: Array<{location: string, forecasts: IDayWeather}>
+    currentday: string;
 }
 
 // ----------------Reducers---------------------------
@@ -87,11 +109,54 @@ export function reducer(state: IWeatherState, action: IWeatherAction): IWeatherS
             return { ...state, forecasts: action.payload.forecasts };
         case LOAD_WEATHER_FAIL:
             return { ...state, location: "", countrycode: "uk", forecasts: [] };
+        case SELECT_DAY:
+            return { ...state, currentday: moment.unix(action.payload.dt).format("YYYY-MM-DD") };
     }
     return state;
 }
 
 // ----------------Selectors---------------------------
+
+//todo: use reselect for memoization/caching
+
+export function selectWeekForecasts(state: IWeatherState): any {
+
+    const days = {};
+    state.forecasts.map(i => {
+        //simple reduction
+        const day = moment.unix(i.dt).format("YYYY-MM-DD");
+        if(!days[day]) {
+            days[day] = {day, dt: i.dt, mintemp: 1000, maxtemp: 0, conditions: "-", windspeed: "-", winddeg: "-"};
+        }
+        if(i.mintemp < days[day].mintemp) {
+            days[day].mintemp = i.mintemp;
+        }
+        if(i.maxtemp > days[day].maxtemp) {
+            days[day].maxtemp = i.maxtemp;
+        }
+        //currently just picking the last value, //todo: could aggregate
+        days[day].conditions = i.conditions;
+        days[day].windspeed = i.windspeed;
+        days[day].winddeg = i.winddeg;
+    });
+
+    const dayforecasts = Object.keys(days).map(i => days[i]);
+    dayforecasts.sort((a, b) => a.dt - b.dt);
+
+    if(dayforecasts.length > 5) {
+        dayforecasts.length = 5; //todo: use lodash helper functions
+    }
+    return dayforecasts;
+}
+
+export function selectDayForecasts(state: IWeatherState): any {
+    const result = state.forecasts.filter(i => {
+        //simple reduction
+        const day = moment.unix(i.dt).format("YYYY-MM-DD");
+        return day === state.currentday;
+    });
+    return result;
+}
 
 // ----------------Sagas/Thunks---------------------------
 
@@ -101,15 +166,18 @@ export function loadWeather(location: string, countrycode: string) {
         console.log("loadWeather-async");
         try {
             const data = await getWeather(location, countrycode);
-            // todo: could parse here, or could add whole response to redux state
+            // todo: could parse/format here, or could add whole response to redux state
             const forecasts: any = data.list.map((i: any) => {
-                return {
-                    day: new Date(i.dt).getDay(), // assume epoch time, // todo: use moment
+                const item: IDayWeather = {
+                    dt: i.dt,
+                    dt_txt: i.dt_txt,
                     mintemp: i.main.temp_min,
                     maxtemp: i.main.temp_max,
                     conditions: i.weather[0].description,
-                    wind: i.wind.speed + " " + i.wind.deg,
-                }
+                    windspeed: i.wind.speed,
+                    winddeg: i.wind.deg,
+                };
+                return item;
             });
             return dispatch(LoadWeatherOk(forecasts));
         } catch(err) {
