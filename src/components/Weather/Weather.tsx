@@ -1,6 +1,6 @@
-import * as React from 'react';
-import { connect } from 'react-redux';
-import {IDayWeather, IWeatherState} from "../../logic/weather";
+import * as React from "react";
+import { connect } from "react-redux";
+import { IDayWeather, IWeatherState } from "../../logic/weather";
 import DayWeather from "./DayWeather";
 
 export interface IProps {
@@ -11,14 +11,12 @@ class Weather extends React.Component<IProps, object> {
     public render() {
         return (
             <div>
-                {
-                    this.props.forecasts ? this.props.forecasts.map(i => {
-                        // todo: key should be record-id
-                        return (
-                            <DayWeather key={i.day} {...i} />
-                        );
-                    }) : null
-                }
+                {this.props.forecasts
+                    ? this.props.forecasts.map(i => {
+                          // todo: key should be record-id
+                          return <DayWeather key={i.day} {...i} />;
+                      })
+                    : null}
             </div>
         );
     }
@@ -27,7 +25,7 @@ class Weather extends React.Component<IProps, object> {
 export function mapStateToProps(props: IWeatherState): IProps {
     return {
         forecasts: props.forecasts,
-    }
+    };
 }
 
 // separate variables for hot reloading + test

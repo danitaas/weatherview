@@ -4,53 +4,52 @@
 
 // todo: as state gets bigger, better to use ActionFactory with typescript generic actions
 
-export const LOAD_WEATHER_START = 'LOAD_WEATHER_START';
+export const LOAD_WEATHER_START = "LOAD_WEATHER_START";
 export type LOAD_WEATHER_START = typeof LOAD_WEATHER_START;
 export interface ILoadWeatherStartAction {
     type: LOAD_WEATHER_START;
     payload: {
-        location: string,
-    }
+        location: string;
+    };
 }
 export function LoadWeatherStart(location: string): ILoadWeatherStartAction {
     return {
         type: LOAD_WEATHER_START,
         payload: {
             location,
-        }
-    }
+        },
+    };
 }
 
-export const LOAD_WEATHER_OK = 'LOAD_WEATHER_OK';
+export const LOAD_WEATHER_OK = "LOAD_WEATHER_OK";
 export type LOAD_WEATHER_OK = typeof LOAD_WEATHER_OK;
 export interface ILoadWeatherOkAction {
     type: LOAD_WEATHER_OK;
     payload: {
-        forecasts: any,
-    }
+        forecasts: any;
+    };
 }
 export function LoadWeatherOk(forecasts: any): ILoadWeatherOkAction {
     return {
         type: LOAD_WEATHER_OK,
         payload: {
             forecasts,
-        }
-    }
+        },
+    };
 }
 
-export const LOAD_WEATHER_FAIL = 'LOAD_WEATHER_FAIL';
+export const LOAD_WEATHER_FAIL = "LOAD_WEATHER_FAIL";
 export type LOAD_WEATHER_FAIL = typeof LOAD_WEATHER_FAIL;
 export interface ILoadWeatherFailAction {
     type: LOAD_WEATHER_FAIL;
 }
 export function LoadWeatherFail(): ILoadWeatherFailAction {
     return {
-        type: LOAD_WEATHER_FAIL
-    }
+        type: LOAD_WEATHER_FAIL,
+    };
 }
 
 export type IWeatherAction = ILoadWeatherStartAction | ILoadWeatherOkAction | ILoadWeatherFailAction;
-
 
 // ----------------State---------------------------
 
@@ -88,7 +87,4 @@ export function reducer(state: IWeatherState, action: IWeatherAction): IWeatherS
 
 // ----------------Selectors---------------------------
 
-
 // ----------------Sagas---------------------------
-
-

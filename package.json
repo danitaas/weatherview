@@ -22,6 +22,7 @@
     "eject": "react-scripts-ts eject",
     "-------FORMAT-------": "",
     "code:format": "./node_modules/.bin/prettier --print-width 120 --tab-width 4 --trailing-comma es5 --parser typescript --write \"**/*.{ts,tsx}\"",
+    "-------END-------": ""
   },
   "devDependencies": {
     "@types/jest": "^23.1.2",

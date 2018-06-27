@@ -1,14 +1,10 @@
-import * as React from 'react';
+import * as React from "react";
 
-export interface IProps {
-
-}
+export interface IProps {}
 
 class Location extends React.Component<IProps, object> {
     public render() {
-        return (
-            <div />
-        );
+        return <div />;
     }
 }
 

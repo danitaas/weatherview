@@ -1,14 +1,12 @@
-import * as React from 'react';
-import './DayWeather.css';
-import {IDayWeather} from "../../logic/weather";
+import * as React from "react";
+import "./DayWeather.css";
+import { IDayWeather } from "../../logic/weather";
 
-export interface IProps extends IDayWeather {
-
-}
+export interface IProps extends IDayWeather {}
 
 function DayWeather(props: IProps) {
     if (props.day === "error") {
-        throw new Error('An error occured');
+        throw new Error("An error occured");
     }
     return (
         <div className="DayWeather-container">
