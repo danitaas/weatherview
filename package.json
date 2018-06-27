@@ -6,6 +6,7 @@
     "@types/react-redux": "^6.0.3",
     "final-form": "^4.8.3",
     "jest-fetch-mock": "^1.6.5",
+    "moment": "^2.22.2",
     "prettier": "^1.13.6",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",

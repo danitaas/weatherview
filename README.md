@@ -1,12 +1,12 @@
 ## Problem description
 
 - [x] Create a simple React + Redux app
-- [ ] that allows a user to enter a location to see the weather forecast for that location.
+- [x] that allows a user to enter a location to see the weather forecast for that location.
 - [x] Your app should have an input which allows the user to enter a town/city (e.g London).
-- [ ] Upon the user submitting the input, your app will connect to a weather API (e.g https://www.openweathermap.org/api )
-- [ ] retrieve the forecast for that city and
-- [ ] store it in the Redux store.
-- [ ] The user will be shown the following information from the data for each of the next 5 days:
+- [x] Upon the user submitting the input, your app will connect to a weather API (e.g https://www.openweathermap.org/api )
+- [x] retrieve the forecast for that city and
+- [x] store it in the Redux store.
+- [x] The user will be shown the following information from the data for each of the next 5 days:
 
 | Data        | Format           |
 | ------------- |-------------|
@@ -16,7 +16,7 @@
 | conditions | clear sky or light snow |
 | wind | 27kmh/17mph WNW |
 
-- [ ] The user should then be able to select a day interactively to drill-down and see a more detailed forecast for that day (e.g. 3-hourly data).
+- [x] The user should then be able to select a day interactively to drill-down and see a more detailed forecast for that day (e.g. 3-hourly data).
 
 Technologies
 ------------
@@ -42,9 +42,11 @@ Deliverables
 May not work in older browser as polyfills not checked
 Service workers/offline first has been disabled
 Have chosen final-form as form library (same author as redux-form) all form state best not kept in redux due to performance (typing lag)
-Inline styles have been used for implementation speed, issues with a perf/maintainence (better to use CSS-in-JSS solution or one of the Sass/Less modules)
+Inline styles have been used for implementation speed, issues with a perf/maintainence/vendor prefixing etc (better to use CSS-in-JSS solution or one of the Sass/Less modules)
 There a TODO notes in the code to indicate alternative ways to implement in a larger project, have skipped over however do let me know if you would like to see more
 console.log would be trimmed in production application
+OpenWeatherAPI offers a number of endpoints, I have chosen 5day+3hr and show day summary based on 12:00pm data, could use 16d endpoint to have the summary, or could calculate summary inside code (eg redux selector)
+Drilldown here is showing on the same page, can be made to show on a seperate SPA page with something like react-router
 
 ## Log
 
