@@ -4,7 +4,7 @@ import * as moment from "moment";
 
 // ----------------Actions---------------------------
 
-// todo: as state gets bigger, better to use ActionFactory with typescript generic actions
+// todo: as state gets bigger, better to use ActionFactory with typescript generic actions, prefix actions with module/slice name
 
 import { getWeather } from "./openweather";
 

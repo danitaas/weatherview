@@ -19,9 +19,10 @@ export class Weather extends React.Component<IProps, object> {
         this.handleClick = this.handleClick.bind(this);
     }
 
-    private handleClick(dt: any) {
-        console.log("handleClick", dt);
+    private handleClick(dt: number) {
+        console.log("handleClick", dt);;
 
+        //could be actioncreator injected by connect or inline
         this.props.dispatch(SelectDay(dt));
     }
 

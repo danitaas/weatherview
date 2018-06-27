@@ -30,6 +30,7 @@ export class Location extends React.Component<IProps, IState> {
         event.preventDefault();
 
         //todo: use redux-saga to control async logic
+        //could be actioncreator injected by connect or inline
         this.props.dispatch(LoadWeatherStart(this.state.location, this.state.countrycode));
         this.props.dispatch(loadWeather(this.state.location, this.state.countrycode));
     }
