@@ -18,12 +18,12 @@ exports[`renders snapshot with props 1`] = `
   <div
     className="HourWeather-item"
   >
-    25.64°C/78.14°F
+    26°C/78°F
   </div>
   <div
     className="HourWeather-item"
   >
-    25.42°C/77.76°F
+    25°C/78°F
   </div>
   <div
     className="HourWeather-item"
@@ -33,7 +33,7 @@ exports[`renders snapshot with props 1`] = `
   <div
     className="HourWeather-item"
   >
-    3.60kmh/2.24mph N
+    4kmh/2mph N
   </div>
 </div>
 `;

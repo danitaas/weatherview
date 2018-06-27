@@ -13,17 +13,17 @@ exports[`renders snapshot with props 1`] = `
   <div
     className="DayWeather-item"
   >
-    Wed 27
+    Wednesday 27
   </div>
   <div
     className="DayWeather-item"
   >
-    25.64°C/78.14°F
+    26°C/78°F
   </div>
   <div
     className="DayWeather-item"
   >
-    25.42°C/77.76°F
+    25°C/78°F
   </div>
   <div
     className="DayWeather-item"
@@ -33,7 +33,7 @@ exports[`renders snapshot with props 1`] = `
   <div
     className="DayWeather-item"
   >
-    3.60kmh/2.24mph N
+    4kmh/2mph N
   </div>
 </div>
 `;
