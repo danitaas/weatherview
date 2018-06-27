@@ -5,11 +5,13 @@
   "dependencies": {
     "@types/react-redux": "^6.0.3",
     "final-form": "^4.8.3",
+    "prettier": "^1.13.6",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-final-form": "^3.6.3",
     "react-redux": "^5.0.7",
     "react-scripts-ts": "2.16.0",
+    "react-test-renderer": "^16.4.1",
     "redux": "^4.0.0"
   },
   "scripts": {
@@ -17,7 +19,9 @@
     "build": "react-scripts-ts build",
     "test": "react-scripts-ts test --env=jsdom",
     "testcoverage": "npm test -- --coverage",
-    "eject": "react-scripts-ts eject"
+    "eject": "react-scripts-ts eject",
+    "-------FORMAT-------": "",
+    "code:format": "./node_modules/.bin/prettier --print-width 120 --tab-width 4 --trailing-comma es5 --parser typescript --write \"**/*.{ts,tsx}\"",
   },
   "devDependencies": {
     "@types/jest": "^23.1.2",

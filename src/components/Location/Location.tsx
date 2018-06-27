@@ -5,11 +5,9 @@ export interface IProps {
 }
 
 class Location extends React.Component<IProps, object> {
-    render() {
+    public render() {
         return (
-            <div>
-
-            </div>
+            <div />
         );
     }
 }

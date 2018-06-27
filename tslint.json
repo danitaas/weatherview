@@ -2,8 +2,15 @@
   "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
   "linterOptions": {
     "exclude": [
-      "config/**/*.js",
-      "node_modules/**/*.ts"
+      "config/**/*.*",
+      "coverage/**/*.*",
+      "node_modules/**/*.*"
     ]
+  },
+  "rules": {
+    "ordered-imports": false,
+    "no-empty-interface": false,
+    "no-var-requires": false,
+    "object-literal-sort-keys": false
   }
 }

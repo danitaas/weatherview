@@ -7,7 +7,7 @@ export interface IProps extends IDayWeather {
 }
 
 function DayWeather(props: IProps) {
-    if (props.day == "error") {
+    if (props.day === "error") {
         throw new Error('An error occured');
     }
     return (

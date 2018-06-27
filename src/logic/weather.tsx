@@ -1,8 +1,8 @@
-//note: my preference is to co-location action defs/action creators/reducers/selectors, however there are many patterns how to structure this
+// note: my preference is to co-location action defs/action creators/reducers/selectors, however there are many patterns how to structure this
 
-//----------------Actions---------------------------
+// ----------------Actions---------------------------
 
-//todo: as state gets bigger, better to use ActionFactory with typescript generic actions
+// todo: as state gets bigger, better to use ActionFactory with typescript generic actions
 
 export const LOAD_WEATHER_START = 'LOAD_WEATHER_START';
 export type LOAD_WEATHER_START = typeof LOAD_WEATHER_START;
@@ -33,7 +33,7 @@ export function LoadWeatherOk(forecasts: any): ILoadWeatherOkAction {
     return {
         type: LOAD_WEATHER_OK,
         payload: {
-            forecasts: forecasts,
+            forecasts,
         }
     }
 }
@@ -52,7 +52,7 @@ export function LoadWeatherFail(): ILoadWeatherFailAction {
 export type IWeatherAction = ILoadWeatherStartAction | ILoadWeatherOkAction | ILoadWeatherFailAction;
 
 
-//----------------State---------------------------
+// ----------------State---------------------------
 
 // todo: rename IDayForecast
 // todo: naming conventions/data formats
@@ -66,14 +66,14 @@ export interface IDayWeather {
 
 export interface IWeatherState {
     location: string;
-    forecasts: Array<IDayWeather>;
-    //todo: could also store multiple locations
-    //eg locations: Array<{location: string, forecasts: IDayWeather}>
+    forecasts: IDayWeather[];
+    // todo: could also store multiple locations
+    // eg locations: Array<{location: string, forecasts: IDayWeather}>
 }
 
-//----------------Reducers---------------------------
+// ----------------Reducers---------------------------
 
-//todo: could use immutablejs for better control/performance
+// todo: could use immutablejs for better control/performance
 export function reducer(state: IWeatherState, action: IWeatherAction): IWeatherState {
     switch (action.type) {
         case LOAD_WEATHER_START:
@@ -86,9 +86,9 @@ export function reducer(state: IWeatherState, action: IWeatherAction): IWeatherS
     return state;
 }
 
-//----------------Selectors---------------------------
+// ----------------Selectors---------------------------
 
 
-//----------------Sagas---------------------------
+// ----------------Sagas---------------------------
 
 

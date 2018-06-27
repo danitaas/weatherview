@@ -4,16 +4,16 @@ import {IDayWeather, IWeatherState} from "../../logic/weather";
 import DayWeather from "./DayWeather";
 
 export interface IProps {
-    forecasts?: Array<IDayWeather>;
+    forecasts?: IDayWeather[];
 }
 
 class Weather extends React.Component<IProps, object> {
-    render() {
+    public render() {
         return (
             <div>
                 {
                     this.props.forecasts ? this.props.forecasts.map(i => {
-                        //todo: key should be record-id
+                        // todo: key should be record-id
                         return (
                             <DayWeather key={i.day} {...i} />
                         );
@@ -30,8 +30,8 @@ export function mapStateToProps(props: IWeatherState): IProps {
     }
 }
 
-//separate variables for hot reloading + test
+// separate variables for hot reloading + test
 const component = Weather;
 const connectedcomponent = connect<IProps, IProps, IProps>(mapStateToProps)(component);
-//todo: add other HOCs here
+// todo: add other HOCs here
 export default connectedcomponent;
