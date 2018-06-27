@@ -4,6 +4,7 @@ import { Dispatch } from "redux";
 import { IWeatherAction, loadWeather, LoadWeatherStart } from "../../logic/weather";
 
 export interface IProps {
+    onSubmit?: any;
     dispatch?: any; // injected by connect()
 }
 
@@ -27,18 +28,20 @@ export class Location extends React.Component<IProps, IState> {
 
     private handleSubmit(event: any) {
         console.log("handleSubmit");
-        event.preventDefault();
+        if(event) {
+            event.preventDefault();
+        }
 
-        //todo: use redux-saga to control async logic
         //could be actioncreator injected by connect or inline
-        this.props.dispatch(LoadWeatherStart(this.state.location, this.state.countrycode));
-        this.props.dispatch(loadWeather(this.state.location, this.state.countrycode));
+        // this.props.onSubmit(LoadWeatherStart(this.state.location, this.state.countrycode));
+        // this.props.dispatch(loadWeather(this.state.location, this.state.countrycode));
+        this.props.onSubmit(this.state.location, this.state.countrycode);
     }
 
     public render() {
         return (
             <div>
-                <form onSubmit={this.handleSubmit}>
+                <form id="searchform" onSubmit={this.handleSubmit}>
                     <label>
                         Location:
                         <input type="text" value={this.state.location} onChange={this.handleChange} />
@@ -60,9 +63,13 @@ export function mapStateToProps(state: any) {
     };
 }
 
-export function mapDispatchToProps(dispatch: Dispatch<IWeatherAction>) {
+export function mapDispatchToProps(dispatch: any) {
     return {
-        //onSearch: (event) => dispatch(LoadWeatherStart()),
+        onSubmit: (location: string, countrycode: string) => {
+            //todo: use redux-saga to control async logic
+            dispatch(LoadWeatherStart(location, countrycode));
+            dispatch(loadWeather(location, countrycode));
+        },
         dispatch,
     };
 }

@@ -3,6 +3,7 @@
 exports[`renders snapshot 1`] = `
 <div>
   <form
+    id="searchform"
     onSubmit={[Function]}
   >
     <label>

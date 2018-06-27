@@ -49,7 +49,7 @@ describe("reducer", () => {
 
 describe("selectors", () => {
     it("selectWeekForecasts", () => {
-        const state: IWeatherState = { location: "London", countrycode: "uk", forecasts: [
+        const state: any = { location: "London", countrycode: "uk", forecasts: [
                 { dt: 1529928000 }, //2018-06-25 12:00
                 { dt: 1530014400 }, //2018-06-26 12:00
                 { dt: 1530100800 }, //2018-06-27 12:00
@@ -57,16 +57,16 @@ describe("selectors", () => {
                 { dt: 1530273600 }, //2018-06-29 12:00
                 { dt: 1530360000 }, //2018-06-30 12:00
             ], currentday: '2018-06-27' };
-        var result = selectWeekForecasts(state);
+        const result = selectWeekForecasts(state);
         expect(result.length).toEqual(5);
     });
     it("selectDayForecasts", () => {
-        const state: IWeatherState = { location: "London", countrycode: "uk", forecasts: [
+        const state: any = { location: "London", countrycode: "uk", forecasts: [
                 { dt: 1529928000 }, //2018-06-25 12:00
                 { dt: 1529938800 }, //2018-06-25 15:00
                 { dt: 1530014400 }, //2018-06-26 12:00
             ], currentday: '2018-06-25' };
-        var result = selectWeekForecasts(state);
+        const result = selectWeekForecasts(state);
         expect(result.length).toEqual(2);
     });
 });
