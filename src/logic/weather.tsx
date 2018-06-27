@@ -4,19 +4,23 @@
 
 // todo: as state gets bigger, better to use ActionFactory with typescript generic actions
 
+import {getWeather} from "./openweather";
+
 export const LOAD_WEATHER_START = "LOAD_WEATHER_START";
 export type LOAD_WEATHER_START = typeof LOAD_WEATHER_START;
 export interface ILoadWeatherStartAction {
     type: LOAD_WEATHER_START;
     payload: {
         location: string;
+        countrycode: string;
     };
 }
-export function LoadWeatherStart(location: string): ILoadWeatherStartAction {
+export function LoadWeatherStart(location: string, countrycode: string): ILoadWeatherStartAction {
     return {
         type: LOAD_WEATHER_START,
         payload: {
             location,
+            countrycode
         },
     };
 }
@@ -65,6 +69,7 @@ export interface IDayWeather {
 
 export interface IWeatherState {
     location: string;
+    countrycode: string;
     forecasts: IDayWeather[];
     // todo: could also store multiple locations
     // eg locations: Array<{location: string, forecasts: IDayWeather}>
@@ -74,17 +79,42 @@ export interface IWeatherState {
 
 // todo: could use immutablejs for better control/performance
 export function reducer(state: IWeatherState, action: IWeatherAction): IWeatherState {
+    console.log("reducer", action); //todo: all use redux middleware or redux dev tools
     switch (action.type) {
         case LOAD_WEATHER_START:
-            return { ...state, location: action.payload.location, forecasts: [] };
+            return { ...state, location: action.payload.location, countrycode: action.payload.countrycode, forecasts: [] };
         case LOAD_WEATHER_OK:
             return { ...state, forecasts: action.payload.forecasts };
         case LOAD_WEATHER_FAIL:
-            return { ...state, location: "", forecasts: [] };
+            return { ...state, location: "", countrycode: "uk", forecasts: [] };
     }
     return state;
 }
 
 // ----------------Selectors---------------------------
 
-// ----------------Sagas---------------------------
+// ----------------Sagas/Thunks---------------------------
+
+export function loadWeather(location: string, countrycode: string) {
+    console.log("loadWeather");
+    return async (dispatch: any, getState: any) => {
+        console.log("loadWeather-async");
+        try {
+            const data = await getWeather(location, countrycode);
+            // todo: could parse here, or could add whole response to redux state
+            const forecasts: any = data.city.list.map((i: any) => {
+                return {
+                    day: new Date(i.dt).getDay(), // assume epoch time, // todo: use moment
+                    mintemp: i.main.temp.temp_min,
+                    maxtemp: i.main.temp.temp_max,
+                    conditions: i.weather.description,
+                    wind: i.wind.speed + " " + i.wind.deg,
+                }
+            });
+            return dispatch(LoadWeatherOk(forecasts));
+        } catch(err) {
+            return dispatch(LoadWeatherFail());
+        }
+    };
+}
+

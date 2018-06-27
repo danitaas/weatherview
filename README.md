@@ -1,8 +1,8 @@
 ## Problem description
 
-- [ ] Create a simple React + Redux app
+- [x] Create a simple React + Redux app
 - [ ] that allows a user to enter a location to see the weather forecast for that location.
-- [ ] Your app should have an input which allows the user to enter a town/city (e.g London).
+- [x] Your app should have an input which allows the user to enter a town/city (e.g London).
 - [ ] Upon the user submitting the input, your app will connect to a weather API (e.g https://www.openweathermap.org/api )
 - [ ] retrieve the forecast for that city and
 - [ ] store it in the Redux store.
@@ -21,7 +21,7 @@
 Technologies
 ------------
 - [x] React
-- [ ] Redux
+- [x] Redux
 - [x] ES6
 - [x] Webpack (within CRA, let me know if you would like to see custom config)
 
@@ -34,8 +34,8 @@ Deliverables
 ------------
 
 - [x] The provided solution should contain a README.md with instructions on how to test, build and run the project.
-- [ ] Also in the README, please provide any assumptions you have made.
-- [ ] Please make this available on the web - either via Github, Bitbucket or a downloadable zip from an online drive due to email security restrictions.
+- [x] Also in the README, please provide any assumptions you have made.
+- [x] Please make this available on the web - either via Github, Bitbucket or a downloadable zip from an online drive due to email security restrictions.
 
 ## Assumptions
 
@@ -44,7 +44,7 @@ Service workers/offline first has been disabled
 Have chosen final-form as form library (same author as redux-form) all form state best not kept in redux due to performance (typing lag)
 Inline styles have been used for implementation speed, issues with a perf/maintainence (better to use CSS-in-JSS solution or one of the Sass/Less modules)
 There a TODO notes in the code to indicate alternative ways to implement in a larger project, have skipped over however do let me know if you would like to see more
-
+console.log would be trimmed in production application
 
 ## Log
 

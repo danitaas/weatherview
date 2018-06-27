@@ -10,13 +10,13 @@ export interface IProps {
 class Weather extends React.Component<IProps, object> {
     public render() {
         return (
-            <div>
-                {this.props.forecasts
+            <div style={{marginTop: 50}}>
+                {this.props.forecasts && this.props.forecasts.length > 0
                     ? this.props.forecasts.map(i => {
                           // todo: key should be record-id
                           return <DayWeather key={i.day} {...i} />;
                       })
-                    : null}
+                    : <div>No results found</div>}
             </div>
         );
     }

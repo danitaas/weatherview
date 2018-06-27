@@ -11,6 +11,9 @@
     "ordered-imports": false,
     "no-empty-interface": false,
     "no-var-requires": false,
+    "no-console": false,
+    "member-ordering": false,
+    "comment-format": false,
     "object-literal-sort-keys": false
   }
 }
