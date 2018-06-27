@@ -13,10 +13,10 @@ export interface IState {
 }
 
 
-class Location extends React.Component<IProps, IState> {
+export class Location extends React.Component<IProps, IState> {
     constructor(props: IProps) {
         super(props);
-        this.state = {location: '', countrycode: 'uk'};
+        this.state = {location: 'London', countrycode: 'uk'};
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -54,7 +54,7 @@ class Location extends React.Component<IProps, IState> {
     }
 }
 
-export function mapStateToProps(props: any) {
+export function mapStateToProps(state: any) {
     return {
         // todo: could bind initial location/country code from redux state
     }
