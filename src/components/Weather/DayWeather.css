@@ -1,9 +1,11 @@
 
+
 .DayWeather-container {
-  display: flex;
+  display: flex; /* todo: flex grid if target browser supports it */
   flex-direction: row;
+  width: auto;
 }
 
 .DayWeather-item {
-
+  width: 180px; /* todo: flex grid if target browser supports it */
 }
