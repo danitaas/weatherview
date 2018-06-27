@@ -43,7 +43,7 @@ describe('data github', () => {
             expect(err.message).toEqual('connection failed');
         });
         expect((fetch as any).mock.calls.length).toEqual(1);
-        expect((fetch as any).mock.calls[0][0]).toEqual('http://samples.openweathermap.org/data/2.5/forecast?q=London,uk&mode=json');
+        expect((fetch as any).mock.calls[0][0]).toEqual('http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=ca95dcb9f2d52108299b5c16eb278ca8');
         return result;
     });
     it('getWeather fail 500', () => {
@@ -52,7 +52,7 @@ describe('data github', () => {
             expect(err).toEqual('Server Error');
         });
         expect((fetch as any).mock.calls.length).toEqual(1);
-        expect((fetch as any).mock.calls[0][0]).toEqual('http://samples.openweathermap.org/data/2.5/forecast?q=London,uk&mode=json');
+        expect((fetch as any).mock.calls[0][0]).toEqual('http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=ca95dcb9f2d52108299b5c16eb278ca8');
         return result;
     });
     it('getWeather London,uk', () => {
@@ -63,7 +63,7 @@ describe('data github', () => {
             expect(data.city.list.length).toEqual(1);
         });
         expect((fetch as any).mock.calls.length).toEqual(1);
-        expect((fetch as any).mock.calls[0][0]).toEqual('http://samples.openweathermap.org/data/2.5/forecast?q=London,uk&mode=json');
+        expect((fetch as any).mock.calls[0][0]).toEqual('http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=ca95dcb9f2d52108299b5c16eb278ca8');
         return result;
     });
     it('getWeather bad', () => {
@@ -72,7 +72,7 @@ describe('data github', () => {
             expect(data).toBeNull();
         });
         expect((fetch as any).mock.calls.length).toEqual(1);
-        expect((fetch as any).mock.calls[0][0]).toEqual('http://samples.openweathermap.org/data/2.5/forecast?q=thisplacedoesnotexists,uk&mode=json');
+        expect((fetch as any).mock.calls[0][0]).toEqual('http://api.openweathermap.org/data/2.5/weather?q=thisplacedoesnotexists,uk&APPID=ca95dcb9f2d52108299b5c16eb278ca8');
         return result;
     });
 });

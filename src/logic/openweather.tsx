@@ -29,12 +29,13 @@ export function safefetch(url: string, options?: any) {
 }
 
 //todo: from env var, dont commit to source in a real project!!! use a secret
-const apikey = 'b1af31852368e2ca499486ef04f892ad';
+const apikey = 'ca95dcb9f2d52108299b5c16eb278ca8';
 
 export function getWeather(location: string, countrycode: string) {
     //const url = `http://samples.openweathermap.org/data/2.5/forecast?q=${location},${countrycode}&mode=json`;
     //const url = `https://owm.io/data/2.5/forecast?q=${location},${countrycode}&mode=xml&appid=${apikey}`;
-    const url = `http://api.openweathermap.org/data/2.5/forecast?q=${location},${countrycode}&mode=xml&appid=${apikey}`;
+    //const url = `http://api.openweathermap.org/data/2.5/forecast?q=${location},${countrycode}&mode=xml&appid=${apikey}`;
+    const url = `http://api.openweathermap.org/data/2.5/forecast?q=${location},${countrycode}&APPID=${apikey}`;
     console.log("getWeather", url);
     return safefetch(url).then(json => {
         // todo: any extra logging/transform

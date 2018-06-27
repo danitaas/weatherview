@@ -102,17 +102,18 @@ export function loadWeather(location: string, countrycode: string) {
         try {
             const data = await getWeather(location, countrycode);
             // todo: could parse here, or could add whole response to redux state
-            const forecasts: any = data.city.list.map((i: any) => {
+            const forecasts: any = data.list.map((i: any) => {
                 return {
                     day: new Date(i.dt).getDay(), // assume epoch time, // todo: use moment
-                    mintemp: i.main.temp.temp_min,
-                    maxtemp: i.main.temp.temp_max,
-                    conditions: i.weather.description,
+                    mintemp: i.main.temp_min,
+                    maxtemp: i.main.temp_max,
+                    conditions: i.weather[0].description,
                     wind: i.wind.speed + " " + i.wind.deg,
                 }
             });
             return dispatch(LoadWeatherOk(forecasts));
         } catch(err) {
+            console.error(err);
             return dispatch(LoadWeatherFail());
         }
     };
