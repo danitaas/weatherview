@@ -1,14 +1,13 @@
-
-
 // todo: simple app specific wrapper for fetch, ideally shared
 export function safefetch(url: string, options?: any) {
     const promise = fetch(url, options)
-        .then((response) => {
+        .then(
+            response => {
                 if (200 <= response.status && response.status < 300) {
                     return response.json();
                 } else {
                     console.error("fetch2 - bad response");
-                    return response.text().then((errtext) => {
+                    return response.text().then(errtext => {
                         console.error("fetch2 - errtext - " + errtext);
                         return Promise.reject(errtext);
                     });
@@ -29,7 +28,7 @@ export function safefetch(url: string, options?: any) {
 }
 
 //todo: from env var, dont commit to source in a real project!!! use a secret
-const apikey = 'ca95dcb9f2d52108299b5c16eb278ca8';
+const apikey = "ca95dcb9f2d52108299b5c16eb278ca8";
 
 export function getWeather(location: string, countrycode: string) {
     //const url = `http://samples.openweathermap.org/data/2.5/forecast?q=${location},${countrycode}&mode=json`;
@@ -42,4 +41,3 @@ export function getWeather(location: string, countrycode: string) {
         return json;
     });
 }
-

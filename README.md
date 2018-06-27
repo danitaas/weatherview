@@ -39,21 +39,21 @@ Deliverables
 
 ## Assumptions
 
-May not work in older browser as polyfills not checked
-Service workers/offline first has been disabled
-Have chosen final-form as form library (same author as redux-form) all form state best not kept in redux due to performance (typing lag)
-Inline styles have been used for implementation speed, issues with a perf/maintainence/vendor prefixing etc (better to use CSS-in-JSS solution or one of the Sass/Less modules)
-There a TODO notes in the code to indicate alternative ways to implement in a larger project, have skipped over however do let me know if you would like to see more
-console.log would be trimmed in production application
-OpenWeatherAPI offers a number of endpoints, I have chosen 5day+3hr and show day summary based on 12:00pm data, could use 16d endpoint to have the summary, or could calculate summary inside code (eg redux selector)
-Drilldown here is showing on the same page, can be made to show on a seperate SPA page with something like react-router
+- May not work in older browser as polyfills not checked
+- Service workers/offline first has been disabled
+- Have chosen final-form as form library (same author as redux-form) all form state best not kept in redux due to performance (typing lag)
+- Some inline styles have been used for implementation speed, issues with a perf/maintainence/vendor prefixing etc (better to use CSS-in-JSS solution or one of the Sass/Less modules)
+- Check code comments for alternative ways to implement in a larger project, (have skipped over however do let me know if you would like to see more)
+- console.log/console.error would be trimmed in production application
+- OpenWeatherAPI offers a number of endpoints, I have chosen 5day+3hr and show day summary based on 12:00pm data, could use 16d endpoint to have the summary, or could calculate summary inside code (eg redux selector)
+- Drilldown here is showing on the same page, can be made to show on a seperate SPA page with something like react-router
+- Pragmatic testing to show capabilities of testing frameworks
+- Limited argument validation performed
 
 ## Log
 
 - This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
-- Find starter kit
-- Use https://github.com/Microsoft/TypeScript-React-Starter
-
+- Starter kit https://github.com/Microsoft/TypeScript-React-Starter
 
 ## Scripts
 
@@ -74,6 +74,6 @@ See the section about [running tests](#running-tests) for more information.
 
 Builds the app for production to the `build` folder.<br>
 
-### `npm run build`
+### `npm run eject`
 
 Dont run!!

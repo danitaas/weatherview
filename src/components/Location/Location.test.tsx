@@ -1,5 +1,5 @@
 import * as React from "react";
-import {Location} from "./Location";
+import { Location } from "./Location";
 // todo: cant use typescript import without correcting toolchain
 const ReactShallowRenderer = require("react-test-renderer/shallow");
 const ReactTestRenderer = require("react-test-renderer");

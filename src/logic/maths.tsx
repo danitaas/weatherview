@@ -2,19 +2,19 @@ import * as moment from "moment";
 
 //todo: extract into helper class or use something like convert-units (audit security)
 export function formatCentigradeFromKelvin(kelvin: number): string {
-    return (kelvin - 273.15).toFixed(2);
+    return (kelvin - 273.15).toFixed(0);
 }
 
 export function formatFahrenheitFromKelvin(kelvin: number): string {
-    return ((kelvin - 273.15) * 9 / 5 + 32).toFixed(2);
+    return (((kelvin - 273.15) * 9) / 5 + 32).toFixed(0);
 }
 
 export function formatKMHFromMS(value: number): string {
-    return (value * 3.6).toFixed(2);
+    return (value * 3.6).toFixed(0);
 }
 
 export function formatMPHFromMS(value: number): string {
-    return (value * 2.2369362920544).toFixed(2);
+    return (value * 2.2369362920544).toFixed(0);
 }
 
 // from https://gist.github.com/felipeskroski/8aec22f01dabdbf8fb6b

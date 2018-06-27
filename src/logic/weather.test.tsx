@@ -12,7 +12,13 @@ describe("reducer", () => {
         const state1: any = { location: "London", countrycode: "uk", forecasts: [] };
         const state2: IWeatherState = reducer(
             state1,
-            LoadWeatherOk([{ day: "Mon 9:00" }, { day: "Mon 12:00" }, { day: "Mon 15:00" }, { day: "Mon 18:00" }, { day: "Mon 21:00" }])
+            LoadWeatherOk([
+                { day: "Mon 9:00" },
+                { day: "Mon 12:00" },
+                { day: "Mon 15:00" },
+                { day: "Mon 18:00" },
+                { day: "Mon 21:00" },
+            ])
         );
         expect(state2.location).toEqual("London");
         expect(state2.countrycode).toEqual("uk");

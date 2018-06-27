@@ -1,7 +1,7 @@
 import * as React from "react";
 import { connect } from "react-redux";
-import {Dispatch} from "redux";
-import {IWeatherAction, loadWeather, LoadWeatherStart} from "../../logic/weather";
+import { Dispatch } from "redux";
+import { IWeatherAction, loadWeather, LoadWeatherStart } from "../../logic/weather";
 
 export interface IProps {
     dispatch?: any; // injected by connect()
@@ -12,18 +12,17 @@ export interface IState {
     countrycode: string;
 }
 
-
 export class Location extends React.Component<IProps, IState> {
     constructor(props: IProps) {
         super(props);
-        this.state = {location: 'London', countrycode: 'uk'};
+        this.state = { location: "London", countrycode: "uk" };
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     private handleChange(event: any) {
-        this.setState({location: event.target.value});
+        this.setState({ location: event.target.value });
     }
 
     private handleSubmit(event: any) {
@@ -57,18 +56,21 @@ export class Location extends React.Component<IProps, IState> {
 export function mapStateToProps(state: any) {
     return {
         // todo: could bind initial location/country code from redux state
-    }
+    };
 }
 
 export function mapDispatchToProps(dispatch: Dispatch<IWeatherAction>) {
     return {
         //onSearch: (event) => dispatch(LoadWeatherStart()),
         dispatch,
-    }
+    };
 }
 
 // separate variables for hot reloading + test
 const component = Location;
-const connectedcomponent = connect<IProps, IProps, IProps>(mapStateToProps, mapDispatchToProps)(component);
+const connectedcomponent = connect<IProps, IProps, IProps>(
+    mapStateToProps,
+    mapDispatchToProps
+)(component);
 // todo: add other HOCs here
 export default connectedcomponent;

@@ -17,6 +17,8 @@ it("renders snapshot", () => {
 });
 
 it("renders snapshot with props", () => {
-    const tree = ReactTestRenderer.create(<HourWeather dt={1530100800} mintemp={298.785} maxtemp={298.571} conditions={"a"} windspeed={1} winddeg={1} />).toJSON();
+    const tree = ReactTestRenderer.create(
+        <HourWeather dt={1530100800} mintemp={298.785} maxtemp={298.571} conditions={"a"} windspeed={1} winddeg={1} />
+    ).toJSON();
     expect(tree).toMatchSnapshot();
 });

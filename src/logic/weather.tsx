@@ -6,7 +6,7 @@ import * as moment from "moment";
 
 // todo: as state gets bigger, better to use ActionFactory with typescript generic actions
 
-import {getWeather} from "./openweather";
+import { getWeather } from "./openweather";
 
 export const LOAD_WEATHER_START = "LOAD_WEATHER_START";
 export type LOAD_WEATHER_START = typeof LOAD_WEATHER_START;
@@ -22,7 +22,7 @@ export function LoadWeatherStart(location: string, countrycode: string): ILoadWe
         type: LOAD_WEATHER_START,
         payload: {
             location,
-            countrycode
+            countrycode,
         },
     };
 }
@@ -61,14 +61,14 @@ export interface ISelectDayAction {
     type: SELECT_DAY;
     payload: {
         dt: number;
-    }
+    };
 }
 export function SelectDay(dt: number): ISelectDayAction {
     return {
         type: SELECT_DAY,
         payload: {
-            dt
-        }
+            dt,
+        },
     };
 }
 
@@ -104,7 +104,12 @@ export function reducer(state: IWeatherState, action: IWeatherAction): IWeatherS
     console.log("reducer", action); //todo: all use redux middleware or redux dev tools
     switch (action.type) {
         case LOAD_WEATHER_START:
-            return { ...state, location: action.payload.location, countrycode: action.payload.countrycode, forecasts: [] };
+            return {
+                ...state,
+                location: action.payload.location,
+                countrycode: action.payload.countrycode,
+                forecasts: [],
+            };
         case LOAD_WEATHER_OK:
             return { ...state, forecasts: action.payload.forecasts };
         case LOAD_WEATHER_FAIL:
@@ -120,18 +125,17 @@ export function reducer(state: IWeatherState, action: IWeatherAction): IWeatherS
 //todo: use reselect for memoization/caching
 
 export function selectWeekForecasts(state: IWeatherState): any {
-
     const days = {};
     state.forecasts.map(i => {
         //simple reduction
         const day = moment.unix(i.dt).format("YYYY-MM-DD");
-        if(!days[day]) {
-            days[day] = {day, dt: i.dt, mintemp: 1000, maxtemp: 0, conditions: "-", windspeed: "-", winddeg: "-"};
+        if (!days[day]) {
+            days[day] = { day, dt: i.dt, mintemp: 1000, maxtemp: 0, conditions: "-", windspeed: "-", winddeg: "-" };
         }
-        if(i.mintemp < days[day].mintemp) {
+        if (i.mintemp < days[day].mintemp) {
             days[day].mintemp = i.mintemp;
         }
-        if(i.maxtemp > days[day].maxtemp) {
+        if (i.maxtemp > days[day].maxtemp) {
             days[day].maxtemp = i.maxtemp;
         }
         //currently just picking the last value, //todo: could aggregate
@@ -143,7 +147,7 @@ export function selectWeekForecasts(state: IWeatherState): any {
     const dayforecasts = Object.keys(days).map(i => days[i]);
     dayforecasts.sort((a, b) => a.dt - b.dt);
 
-    if(dayforecasts.length > 5) {
+    if (dayforecasts.length > 5) {
         dayforecasts.length = 5; //todo: use lodash helper functions
     }
     return dayforecasts;
@@ -180,10 +184,9 @@ export function loadWeather(location: string, countrycode: string) {
                 return item;
             });
             return dispatch(LoadWeatherOk(forecasts));
-        } catch(err) {
+        } catch (err) {
             console.error(err);
             return dispatch(LoadWeatherFail());
         }
     };
 }
-
