@@ -1,12 +1,11 @@
 import * as moment from "moment";
+import { getWeather } from "./openweather";
 
 // note: my preference is to co-location action defs/action creators/reducers/selectors, however there are many patterns how to structure this
 
 // ----------------Actions---------------------------
 
 // todo: as state gets bigger, better to use ActionFactory with typescript generic actions, prefix actions with module/slice name
-
-import { getWeather } from "./openweather";
 
 export const LOAD_WEATHER_START = "LOAD_WEATHER_START";
 export type LOAD_WEATHER_START = typeof LOAD_WEATHER_START;

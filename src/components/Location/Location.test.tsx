@@ -6,7 +6,7 @@ const ReactTestRenderer = require("react-test-renderer");
 import * as enzyme from 'enzyme';
 //import ReactTestUtils from 'react-addons-test-utils';
 
-var mocktheme = {
+const mocktheme = {
     spacing: {
         unit: 8,
     }

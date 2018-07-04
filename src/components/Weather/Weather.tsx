@@ -12,6 +12,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
+import * as moment from "moment";
 
 export interface IProps {
     weekforecasts?: IDayWeather[];
@@ -90,7 +91,7 @@ export class Weather extends React.Component<IProps, IState> {
                     fullWidth={false}
                     onClose={this.handleClose}
                     open={this.state.dialogopen}>
-                    <DialogTitle>Daily Forecast for: {this.props.currentday}</DialogTitle>
+                    <DialogTitle>Daily Forecast: {moment(this.props.currentday).format("dddd DD")}</DialogTitle>
                     <DialogContent>
                         <div className="Weather-day">
                             <div className="Weather-houritems">
