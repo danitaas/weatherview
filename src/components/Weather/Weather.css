@@ -15,7 +15,8 @@
 .Weather-dayitem {
   text-align: left;
   margin-bottom: 20px;
-    width: 350px;
+    min-width: 350px;
+    max-width: 450px;
 }
 
 .Weather-day {
