@@ -13,27 +13,49 @@ exports[`renders snapshot with props 1`] = `
   <div
     className="HourWeather-item"
   >
-    13:00
+    <h2
+      className="MuiTypography-root-1 MuiTypography-title-7"
+    >
+      13:00
+    </h2>
   </div>
   <div
     className="HourWeather-item"
   >
-    26°C/78°F
+    <aside
+      className="MuiTypography-root-1 MuiTypography-body2-9"
+    >
+      Max: 
+      26°C/78°F
+    </aside>
   </div>
   <div
     className="HourWeather-item"
   >
-    25°C/78°F
+    <aside
+      className="MuiTypography-root-1 MuiTypography-body2-9"
+    >
+      Min: 
+      25°C/78°F
+    </aside>
   </div>
   <div
     className="HourWeather-item"
   >
-    a
+    <aside
+      className="MuiTypography-root-1 MuiTypography-body2-9"
+    >
+      a
+    </aside>
   </div>
   <div
     className="HourWeather-item"
   >
-    4kmh/2mph N
+    <aside
+      className="MuiTypography-root-1 MuiTypography-body2-9"
+    >
+      4kmh/2mph N
+    </aside>
   </div>
 </div>
 `;

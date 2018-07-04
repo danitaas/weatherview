@@ -4,8 +4,11 @@
   display: flex; /* todo: flex grid if target browser supports it */
   flex-direction: row;
   width: auto;
+  flex-wrap: wrap;
+  padding: 10px;
 }
 
 .DayWeather-item {
   width: 180px; /* todo: flex grid if target browser supports it */
+  margin-bottom: 10px;
 }

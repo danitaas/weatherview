@@ -13,27 +13,83 @@ exports[`renders snapshot with props 1`] = `
   <div
     className="DayWeather-item"
   >
-    Wednesday 27
+    <h2
+      className="MuiTypography-root-1 MuiTypography-title-7"
+    >
+      Wednesday 27
+    </h2>
   </div>
   <div
     className="DayWeather-item"
   >
-    26°C/78°F
+    <aside
+      className="MuiTypography-root-1 MuiTypography-body2-9"
+    >
+      Max: 
+      26°C/78°F
+    </aside>
   </div>
   <div
     className="DayWeather-item"
   >
-    25°C/78°F
+    <aside
+      className="MuiTypography-root-1 MuiTypography-body2-9"
+    >
+      Min: 
+      25°C/78°F
+    </aside>
+  </div>
+  <div
+    className="DayWeather-item"
+    style={
+      Object {
+        "alignItems": "center",
+        "display": "flex",
+      }
+    }
+  >
+    <div>
+      <svg
+        aria-hidden="true"
+        className="MuiSvgIcon-root-25"
+        color={undefined}
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <g>
+          <path
+            d="M19.36 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.64-4.96z"
+          />
+        </g>
+      </svg>
+    </div>
+    <div
+      style={
+        Object {
+          "marginLeft": 10,
+        }
+      }
+    >
+      <aside
+        className="MuiTypography-root-1 MuiTypography-body2-9"
+        style={
+          Object {
+            "display": "inline-block",
+          }
+        }
+      >
+        a
+      </aside>
+    </div>
   </div>
   <div
     className="DayWeather-item"
   >
-    a
-  </div>
-  <div
-    className="DayWeather-item"
-  >
-    4kmh/2mph N
+    <aside
+      className="MuiTypography-root-1 MuiTypography-body2-9"
+    >
+      4kmh/2mph N
+    </aside>
   </div>
 </div>
 `;

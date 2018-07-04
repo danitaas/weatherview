@@ -6,25 +6,135 @@ exports[`renders snapshot 1`] = `
     id="searchform"
     onSubmit={[Function]}
   >
-    <label>
-      Location:
-      <input
-        onChange={[Function]}
-        type="text"
-        value="London"
-      />
-    </label>
-    <label>
-      Country Code:
-      <input
-        type="text"
-        value="uk"
-      />
-    </label>
-    <input
-      type="submit"
-      value="Submit"
-    />
+    <div
+      className="MuiPaper-root-1 MuiPaper-elevation2-5 MuiPaper-rounded-2 display flexWrap alignItems maxWidth margin justifyContent"
+    >
+      <div>
+        <div
+          aria-describedby={undefined}
+          className="MuiFormControl-root-28 MuiFormControl-marginNormal-29 marginLeft marginRight width"
+        >
+          <label
+            className="MuiFormLabel-root-37 MuiInputLabel-root-32 MuiInputLabel-formControl-33 MuiInputLabel-animated-36 MuiInputLabel-shrink-35"
+            data-shrink={true}
+            htmlFor="location"
+          >
+            Location
+          </label>
+          <div
+            className="MuiInput-root-42 MuiInput-formControl-43 MuiInput-underline-46"
+          >
+            <input
+              aria-invalid={false}
+              autoComplete={undefined}
+              autoFocus={undefined}
+              className="MuiInput-input-50"
+              defaultValue={undefined}
+              disabled={false}
+              id="location"
+              name={undefined}
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              onKeyDown={undefined}
+              onKeyUp={undefined}
+              placeholder={undefined}
+              readOnly={undefined}
+              required={undefined}
+              rows={undefined}
+              type="text"
+              value="London"
+            />
+          </div>
+        </div>
+      </div>
+      <div>
+        <div
+          className="MuiFormControl-root-28 margin minWidth"
+        >
+          <label
+            className="MuiFormLabel-root-37 MuiInputLabel-root-32 MuiInputLabel-formControl-33 MuiInputLabel-animated-36 MuiInputLabel-shrink-35"
+            data-shrink={true}
+            htmlFor="age-countrycode"
+          >
+            Country
+          </label>
+          <div
+            className="MuiInput-root-42 MuiInput-formControl-43 MuiInput-underline-46"
+          >
+            <div
+              className="MuiSelect-root-55"
+            >
+              <div
+                aria-haspopup="true"
+                aria-owns={null}
+                aria-pressed="false"
+                className="MuiSelect-select-56 MuiSelect-selectMenu-57 MuiInput-input-50"
+                onBlur={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                role="button"
+                tabIndex={0}
+              >
+                UK
+              </div>
+              <input
+                autoComplete={undefined}
+                autoFocus={undefined}
+                defaultValue={undefined}
+                id="countrycode"
+                name="countrycode"
+                onKeyDown={undefined}
+                onKeyUp={undefined}
+                placeholder={undefined}
+                rows={undefined}
+                type="hidden"
+                value="uk"
+              />
+              <svg
+                aria-hidden="true"
+                className="MuiSvgIcon-root-60 MuiSelect-icon-59"
+                color={undefined}
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M7 10l5 5 5-5z"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <button
+          className="MuiButtonBase-root-95 MuiButton-root-71 MuiButton-contained-80 MuiButton-containedPrimary-81 MuiButton-raised-83 MuiButton-raisedPrimary-84"
+          disabled={false}
+          onBlur={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex="0"
+          type="submit"
+        >
+          <span
+            className="MuiButton-label-72"
+          >
+            Search
+          </span>
+          <span
+            className="MuiTouchRipple-root-98"
+          />
+        </button>
+      </div>
+    </div>
   </form>
 </div>
 `;

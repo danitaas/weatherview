@@ -1,5 +1,5 @@
 import * as React from "react";
-import "./DayWeather.css";
+import "./HourWeather.css";
 import { IDayWeather } from "../../logic/weather";
 import * as moment from "moment";
 import {
@@ -9,6 +9,7 @@ import {
     formatKMHFromMS,
     formatMPHFromMS,
 } from "../../logic/maths";
+import Typography from "@material-ui/core/Typography";
 
 export interface IProps extends Partial<IDayWeather> {}
 
@@ -34,11 +35,11 @@ function HourWeather(props: IProps) {
 
     return (
         <div className="HourWeather-container">
-            <div className="HourWeather-item">{moment.unix(props.dt).format("HH:mm")}</div>
-            <div className="HourWeather-item">{mintempstr}</div>
-            <div className="HourWeather-item">{maxtempstr}</div>
-            <div className="HourWeather-item">{props.conditions}</div>
-            <div className="HourWeather-item">{windstr}</div>
+            <div className="HourWeather-item"><Typography variant="title">{moment.unix(props.dt).format("HH:mm")}</Typography></div>
+            <div className="HourWeather-item"><Typography variant="body2">Max:&nbsp;{mintempstr}</Typography></div>
+            <div className="HourWeather-item"><Typography variant="body2">Min:&nbsp;{maxtempstr}</Typography></div>
+            <div className="HourWeather-item"><Typography variant="body2">{props.conditions}</Typography></div>
+            <div className="HourWeather-item"><Typography variant="body2">{windstr}</Typography></div>
         </div>
     );
 }

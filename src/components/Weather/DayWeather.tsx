@@ -9,6 +9,9 @@ import {
     formatKMHFromMS,
     formatMPHFromMS,
 } from "../../logic/maths";
+import WbCloudyIcon from '@material-ui/icons/WbCloudy';
+import WbSunnyIcon from '@material-ui/icons/WbSunny';
+import Typography from '@material-ui/core/Typography';
 
 export interface IProps extends Partial<IDayWeather> {}
 
@@ -32,11 +35,19 @@ function DayWeather(props: IProps) {
 
     return (
         <div className="DayWeather-container">
-            <div className="DayWeather-item">{moment.unix(props.dt).format("dddd DD")}</div>
-            <div className="DayWeather-item">{mintempstr}</div>
-            <div className="DayWeather-item">{maxtempstr}</div>
-            <div className="DayWeather-item">{props.conditions}</div>
-            <div className="DayWeather-item">{windstr}</div>
+            <div className="DayWeather-item"><Typography variant="title">{moment.unix(props.dt).format("dddd DD")}</Typography></div>
+            <div className="DayWeather-item"><Typography variant="body2">Max:&nbsp;{mintempstr}</Typography></div>
+            <div className="DayWeather-item"><Typography variant="body2">Min:&nbsp;{maxtempstr}</Typography></div>
+            { /* todo: flex layout */}
+            <div className="DayWeather-item" style={{display: 'flex', alignItems: 'center'}}>
+                <div>
+                    {props.conditions && props.conditions === "clear sky" ? (<WbSunnyIcon/>) : (<WbCloudyIcon />)}
+                </div>
+                <div style={{marginLeft: 10}}>
+                    <Typography variant="body2" style={{display: 'inline-block'}}>{props.conditions}</Typography>
+                </div>
+            </div>
+            <div className="DayWeather-item"><Typography variant="body2">{windstr}</Typography></div>
         </div>
     );
 }

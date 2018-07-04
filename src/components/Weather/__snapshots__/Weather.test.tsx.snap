@@ -8,18 +8,12 @@ exports[`renders snapshot 1`] = `
     className="Weather-dayitems"
   >
     <div>
-      No results found
+      <h3
+        className="MuiTypography-root-1 MuiTypography-subheading-8"
+      >
+        No results found
+      </h3>
     </div>
-  </div>
-  <div
-    className="Weather-day"
-  >
-    <div>
-      Selected Day: 
-    </div>
-    <div
-      className="Weather-houritems"
-    />
   </div>
 </div>
 `;
@@ -32,18 +26,12 @@ exports[`renders snapshot with props 1`] = `
     className="Weather-dayitems"
   >
     <div>
-      No results found
+      <h3
+        className="MuiTypography-root-1 MuiTypography-subheading-8"
+      >
+        No results found
+      </h3>
     </div>
-  </div>
-  <div
-    className="Weather-day"
-  >
-    <div>
-      Selected Day: 
-    </div>
-    <div
-      className="Weather-houritems"
-    />
   </div>
 </div>
 `;

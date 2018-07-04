@@ -25,7 +25,7 @@ exports[`renders snapshot 1`] = `
       }
     }
   >
-    <Connect(Location) />
+    <WithStyles(Connect(Location)) />
     <Connect(Weather) />
   </div>
 </div>
