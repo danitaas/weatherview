@@ -20,6 +20,10 @@
   padding: 4px;
 }
 
+.DayWeather-item:hover {
+  cursor: pointer;
+}
+
 .DayWeather-item-short {
   text-align: left;
   display: none;

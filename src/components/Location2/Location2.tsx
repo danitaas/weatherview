@@ -150,6 +150,7 @@ export const styles: any = (theme: any) => ({
         transition: 'transform .2s',
         "&:hover": {
             transform: 'scale(1.5)', //todo: other micro animations
+            cursor: 'pointer',
         },
     },
 });
