@@ -57,16 +57,8 @@ function DayWeather(props: IProps) {
                         <div style={{fontWeight: 600}}>{props.maxtemp && formatCentigradeFromKelvin(props.maxtemp)}&deg;</div>
                         <div>{props.mintemp && formatCentigradeFromKelvin(props.mintemp)}&deg;</div>
                     </div>
-                    <div style={{marginLeft: 10}}>
+                    <div style={{marginLeft: 10, width: 70}}>
                         <Typography variant="body2" style={{display: 'inline-block'}}>{props.conditions}</Typography>
-                    </div>
-                    <div style={{display: 'flex', alignItems: 'center'}}>
-                        <div style={{transform: "rotateZ(" + props.winddeg + "deg)"}}>
-                            <ArrowUpward/>
-                        </div>
-                        <div style={{marginLeft: 10}}>
-                            <Typography variant="body2" style={{display: 'inline-block'}}>{windstr}</Typography>
-                        </div>
                     </div>
                 </div>
             </div>

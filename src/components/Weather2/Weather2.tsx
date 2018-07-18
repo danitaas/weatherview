@@ -73,29 +73,25 @@ export class Weather extends React.Component<IProps, IState> {
 
                 {
                     currentdata ? (
-                        <div style={{width: 200, margin: '0 auto'}}>
-                            <DayWeather {...currentdata} variant={"large"} />
+                        <div>
+                            <div style={{width: 200, margin: '0 auto'}}>
+                                <DayWeather {...currentdata} variant={"large"} />
+                            </div>
+                            <div className="Weather-houritems">
+                                {this.props.dayforecasts && this.props.dayforecasts.length > 0
+                                    ? this.props.dayforecasts.map(i => {
+                                        return (
+                                            // todo: key should be record-id
+                                            <div key={"houritem" + i.dt} className="Weather-houritem">
+                                                <HourWeather {...i} />
+                                            </div>
+                                        );
+                                    })
+                                    : null}
+                            </div>
                         </div>
                     ) : null
                 }
-
-                    {/*<DialogTitle>Daily Forecast: {moment(this.props.currentday).format("dddd DD")}</DialogTitle>*/}
-                        {/*<div className="Weather-day">*/}
-                            {/*<div className="Weather-houritems">*/}
-                                {/*{this.props.dayforecasts && this.props.dayforecasts.length > 0*/}
-                                    {/*? this.props.dayforecasts.map(i => {*/}
-                                        {/*return (*/}
-                                            {/*// todo: key should be record-id*/}
-                                            {/*<div key={"houritem" + i.dt} className="Weather-houritem">*/}
-                                                {/*<Paper>*/}
-                                                    {/*<HourWeather {...i} />*/}
-                                                {/*</Paper>*/}
-                                            {/*</div>*/}
-                                        {/*);*/}
-                                    {/*})*/}
-                                    {/*: null}*/}
-                            {/*</div>*/}
-                        {/*</div>*/}
             </div>
         );
     }

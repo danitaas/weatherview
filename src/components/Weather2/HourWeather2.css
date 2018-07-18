@@ -1,8 +1,12 @@
 
 
 .HourWeather-container {
-    /*width: 200px;*/
-    padding: 8px;
+    width: 80px;
+    padding: 4px;
+    background-color: white;
+    text-align: center;
+    margin: 1px;
+    height: 350px;
 }
 
 .HourWeather-item {
