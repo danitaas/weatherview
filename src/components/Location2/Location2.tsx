@@ -73,10 +73,7 @@ export class Location extends React.Component<IProps, IState> {
                             <input placeholder={"Enter country code"} className={this.props.classes.textField} id="countrycode" name="countrycode" value={this.state.countrycode} onChange={this.handleCountryChange} />
                         </div>
                         <div className={this.props.classes.searchcell}>
-                            <SearchIcon style={{
-                                width: 44,
-                                height: 44
-                            }} onClick={this.handleSubmit} />
+                            <SearchIcon className={this.props.classes.searchField} onClick={this.handleSubmit} />
                         </div>
                     </div>
                 </form>
@@ -146,6 +143,14 @@ export const styles: any = (theme: any) => ({
         fontFamily: 'Helvetica,Arial,freesans,sans-serif',
         fontSize: 20,
         border: 'none',
+    },
+    searchField: {
+        width: 44,
+        height: 44,
+        transition: 'transform .2s',
+        "&:hover": {
+            transform: 'scale(1.5)', //todo: other micro animations
+        },
     },
 });
 
