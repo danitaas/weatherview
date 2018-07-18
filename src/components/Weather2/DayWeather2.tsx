@@ -13,12 +13,12 @@ import WbCloudyIcon from '@material-ui/icons/WbCloudy';
 import WbSunnyIcon from '@material-ui/icons/WbSunny';
 import ArrowUpward from '@material-ui/icons/ArrowUpward';
 import Typography from "@material-ui/core/Typography";
-import ExpansionPanel from '@material-ui/core/ExpansionPanel';
-import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
-import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+const classNames = require('classnames');
 
-export interface IProps extends Partial<IDayWeather> {}
+export interface IProps extends Partial<IDayWeather> {
+    active?: boolean;
+    variant?: "small"|"large";
+}
 
 function DayWeather(props: IProps) {
     if (!props.dt) {
@@ -38,40 +38,60 @@ function DayWeather(props: IProps) {
     const winddegstr = props.winddeg ? formatDegToCard(props.winddeg) : "Unknown";
     const windstr = windspeedstr + " " + winddegstr;
 
+    //todo: have combined layouts for simplicity, could eventaully split into seperate component/compositions, though dont refactor too early
+    if(props.variant === "large") {
+        return (
+            <div key={"large"} className={classNames({
+                'DayWeather-item': true,
+                'DayWeather-item-large': true,
+            })}>
+                <div><Typography variant="title">{moment.unix(props.dt).format("ddd DD")}</Typography></div>
+                <div style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap'}}>
+                    <div style={{
+                        textAlign: 'left',
+                        marginLeft: 1,
+                        flexGrow: 1,
+                        color: '#a5a5a5'
+                    }}>{props.conditions && props.conditions === "clear sky" ? (<WbSunnyIcon style={{width: 40, height: 40}}/>) : (<WbCloudyIcon style={{width: 40, height: 40}}/>)}</div>
+                    <div style={{textAlign: 'right', marginRight: 1}}>
+                        <div style={{fontWeight: 600}}>{props.maxtemp && formatCentigradeFromKelvin(props.maxtemp)}&deg;</div>
+                        <div>{props.mintemp && formatCentigradeFromKelvin(props.mintemp)}&deg;</div>
+                    </div>
+                    <div style={{marginLeft: 10}}>
+                        <Typography variant="body2" style={{display: 'inline-block'}}>{props.conditions}</Typography>
+                    </div>
+                    <div style={{display: 'flex', alignItems: 'center'}}>
+                        <div style={{transform: "rotateZ(" + props.winddeg + "deg)"}}>
+                            <ArrowUpward/>
+                        </div>
+                        <div style={{marginLeft: 10}}>
+                            <Typography variant="body2" style={{display: 'inline-block'}}>{windstr}</Typography>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
     return (
-        <div className="DayWeather-container">
-            <ExpansionPanel style={{width: '100%'}}>
-                <ExpansionPanelSummary style={{}} expandIcon={<ExpandMoreIcon />}>
-                    <div style={{display: 'flex', flexDirection: 'row', width: '100%', alignItems: 'center'}}>
-                        <div><Typography variant="title">{moment.unix(props.dt).format("dddd DD")}</Typography></div>
-                        <div style={{flexGrow: 1, minWidth: 50, flexBasis: 50}} />
-                        <div>{props.maxtemp && formatCentigradeFromKelvin(props.maxtemp)}</div>
-                        <div style={{marginLeft: 10}}>{props.conditions && props.conditions === "clear sky" ? (<WbSunnyIcon/>) : (<WbCloudyIcon/>)}</div>
-                    </div>
-                </ExpansionPanelSummary>
-                <ExpansionPanelDetails>
-                    <div className="DayWeather-container">
-                        <div className="DayWeather-item"><Typography variant="body2">Max:&nbsp;{mintempstr}</Typography></div>
-                        <div className="DayWeather-item"><Typography variant="body2">Min:&nbsp;{maxtempstr}</Typography></div>
-                        <div className="DayWeather-item" style={{display: 'flex', alignItems: 'center'}}>
-                            <div>
-                                {props.conditions && props.conditions === "clear sky" ? (<WbSunnyIcon/>) : (<WbCloudyIcon/>)}
-                            </div>
-                            <div style={{marginLeft: 10}}>
-                                <Typography variant="body2" style={{display: 'inline-block'}}>{props.conditions}</Typography>
-                            </div>
-                        </div>
-                        <div className="DayWeather-item" style={{display: 'flex', alignItems: 'center'}}>
-                            <div style={{transform: "rotateZ(" + props.winddeg + "deg)"}}>
-                                <ArrowUpward/>
-                            </div>
-                            <div style={{marginLeft: 10}}>
-                                <Typography variant="body2" style={{display: 'inline-block'}}>{windstr}</Typography>
-                            </div>
-                        </div>
-                    </div>
-                </ExpansionPanelDetails>
-            </ExpansionPanel>
+        <div key={"small"} className={classNames({
+            'DayWeather-item': true,
+            'DayWeather-item-active': props.active,
+        })}>
+            <div className="DayWeather-item-short"><Typography variant="body1">{moment.unix(props.dt).format("DD")}</Typography></div>
+            <div className="DayWeather-item-long"><Typography variant="body1">{moment.unix(props.dt).format("ddd DD")}</Typography></div>
+            <div style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap'}}>
+                <div style={{
+                    textAlign: 'left',
+                    marginLeft: 1,
+                    flexGrow: 1,
+                    color: '#a5a5a5'
+                }}>{props.conditions && props.conditions === "clear sky" ? (<WbSunnyIcon style={{width: 30, height: 30}}/>) : (<WbCloudyIcon style={{width: 30, height: 30}}/>)}</div>
+                <div style={{textAlign: 'right', marginRight: 1}}>
+                    <div style={{fontWeight: 600}}>{props.maxtemp && formatCentigradeFromKelvin(props.maxtemp)}&deg;</div>
+                    <div>{props.mintemp && formatCentigradeFromKelvin(props.mintemp)}&deg;</div>
+                </div>
+            </div>
         </div>
     );
 }

@@ -5,10 +5,53 @@
   flex-direction: row;
   width: auto;
   flex-wrap: wrap;
-  padding: 10px;
+  padding: 4px;
+  text-align: left;
 }
 
 .DayWeather-item {
-  width: 200px; /* todo: flex grid if target browser supports it */
+  width: 100px;
+  height: 60px;
   margin-bottom: 10px;
+  background-color: white;
+  border-left: solid 1px #EEE;
+  border-right: solid 1px #EEE;
+  border-bottom: solid 5px #EEB43E;
+  padding: 4px;
+}
+
+.DayWeather-item-short {
+  text-align: left;
+  display: none;
+}
+
+.DayWeather-item-long {
+  text-align: left;
+  display: block;
+}
+
+@media only screen and (max-width: 600px) {
+  .DayWeather-item {
+    width: 15vw;
+    height: 100px;
+    font-size: 70%;
+  }
+  .DayWeather-item-short {
+    display: block;
+  }
+  .DayWeather-item-long {
+    display: none;
+  }
+}
+
+.DayWeather-item-active {
+  border-bottom: solid 5px red;
+}
+
+.DayWeather-item-large {
+  width: 200px;
+  height: 100px;
+  text-align: left;
+  border-top: solid 8px red;
+  border-bottom: none;
 }
